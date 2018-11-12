@@ -3,12 +3,12 @@ const handleSignin = (req, res, db, bcrypt) => {
     if (!email || !password) {
         return res.status(400).json('incorrect form submission');
     }
-    db('login_smart-brain').select('email','hash')
+    db('login_smartbrain').select('email','hash')
         .where('email', '=', email)
         .then(data => {
             const isValid = bcrypt.compareSync(password, data[0].hash);
             if(isValid){
-                return db('users_smart-brain').select('*')
+                return db('users_smartbrain').select('*')
                     .where('email', '=', email)
                     .then(user => {
                         res.json(user[0])

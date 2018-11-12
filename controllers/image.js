@@ -14,7 +14,7 @@ const handleApiCall = (req,res) => {
 
 const handleImage = (req, res, db) => {
     const { id } = req.body;
-    db('users_smart-brain').where('id', '=', id)
+    db('users_smartbrain').where('id', '=', id)
         .increment('entries', 1)
         .returning('entries')
         .then(entries => {

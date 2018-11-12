@@ -1,6 +1,6 @@
 const handleProfileGet = (req, res, db) => {
     const { id } = req.params;
-    db.select('*').from('users_smart-brain').where({id})
+    db.select('*').from('users_smartbrain').where({id})
         .then(user => {
             if(user.length){
                 res.json(user[0]);
